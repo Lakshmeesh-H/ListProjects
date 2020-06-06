@@ -21,4 +21,18 @@ for company in company100:
     if  company not in company50:
         new_list.append(company)
 
-print(new_list)
+with open('unique.csv', 'w') as my_file3:
+    csv_writer = csv.writer(my_file3)
+    csv_writer.writerow(['Company Name'])
+    for item in new_list: 
+        csv_writer.writerow(item.split())
+
+# print(new_list)
+
+# Another method of getting non unique values 
+
+new_set = {}
+company50set = set(company50)
+company100set = set(company100)
+new_set = company100set - company50set
+print(new_set)
